@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+}
+ul{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.container{
+    max-width: 1120px;
+    margin-inline: 1.5rem ;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    /* box-shadow: 0.2px 16px hsla(220, 32%, 8%, .3); */
+    z-index: var(--z-fixed);
+}
+.nav{
+    height: 50px;
+}
+.nav--logo,
+.nav--burger,
+.nav--close{
+    color: #fff;
+}
+.nav--data{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav--logo{
+    /* display: inline-flex; */
+    align-items: center;
+    column-gap: 25rem;
+    font-weight: var(--font-semi-bold);
+
+}
+.nav--logo i{
+    font-weight: initial;
+    font-size: 1.25rem;
+}
+.nav--toggle{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    /* background-color: gray; */
+}
+.nav--burger,.nav--close{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+.nav--close{
+    opacity: 0;
+}
+/* ----------------la navigation pour les mobile -------------------------- */
+@media screen and (max-width: 1118px){
+    .nav--menu{
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        /* background-color: gray; */
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+    .nav--menu::-webkit-scrollbar{
+        width: 0;
+    }
+    .nav--list{
+        background-color: black;
+        /* faire descendre les menu un peu */
+        padding-top: 1rem;
+    }
+    
+}
+.nav--link{
+    color: white;
+    background-color: black;
+    font-weight: var(--font-semi-bold);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    /* maitre les iconne arrow a droit */
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+}
+.nav--link:hover{
+    background-color: rgb(41, 41, 41);
+    padding-top: 1rem;
+}
+
+/* show menu */
+.show-menu{
+    opacity: 1;
+    top: 2.5rem;
+    pointer-events: initial;
+}
+/* show icon */
+.show-icon .nav--burger{
+    opacity: 0;
+    transform: rotate(90deg);
+}
+.show-icon .nav--close{
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.dropdown--item{
+    cursor: pointer;
+}
+.dropdown--arrow{
+    font-size: 1.25rem;
+    font-weight: initial;
+    transition: tranform .4s;
+}
+.dropdown--link,
+.dropdown--sublink{
+    padding: 1.25rem 1.25rem 1.25rem 2.25rem;
+    color: #fff;
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    align-items: center;
+    /* espace entre icon et l'element */
+    column-gap: 0.5rem;
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;
+}
+.dropdown--link i,
+.dropdown--sublink i{
+    font-size: 1.25rem;
+    font-weight: initial;
+}
+.dropdown--link:hover,
+.dropdown--sublink:hover {
+    background-color: black;
+}
+.dropdown--menu,
+.dropdown--submenu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-out;
+}
+/* show dropdown-menu et submenu*/
+.dropdown--item:hover .dropdown--menu,
+.dropdown--subitem:hover >.dropdown--submenu{
+    max-height: 1000px;
+    transition: max-height .4s ease-out;
+}
+/* reotation dropdown icon */
+.dropdown--item:hover .dropdown--arrow{
+    transform: rotate(180deg);
+}
+/* dropdown submenu */
+.dropdown--add{
+    margin-left: auto;
+}
+.dropdown--sublink{
+   background-color:  rgb(26, 26, 26);
+}
+@media screen and (max-width:340px){
+    .container{
+        margin-inline: 1rem;
+    }
+    .nav--link{
+        padding-inline: 1rem;
+    }
+    
+}
+/* longueur large */
+@media screen and (min-width: 1118px){
+    .container{
+        margin-inline: auto;
+    }
+    .nav{
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav--toggle{
+        display: none;
+    }
+    .nav--list{
+        height: 100%;
+        display: flex;
+        column-gap: 3rem;
+    }
+    .nav--link{
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: .25rem;
+    }
+    .nav--link:hover{
+        background-color: transparent;
+    }
+    .dropdown--item,
+    .dropdown--subitem{
+        position: relative;
+    }
+    .dropdown--menu,
+    .dropdown--submenu{
+        max-height: initial;
+        overflow: initial;
+        position: absolute;
+        left: 0;
+        top: 3.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s,top .3s;}
+    
+    .dropdown--link,
+    .dropdown--sublink{
+        padding-inline: 1rem 3.5rem;
+    }
+    .dropdown--subitem .dropdown--link{
+        padding-inline: 1rem;
+    }
+    .dropdown--submenu{
+        position: absolute;
+        left: 100%;
+        top:   .5rem;
+    } 
+    /* show dropdown menu */
+    .dropdown--item:hover .dropdown--menu{
+        opacity: 1;
+        top: 3rem;
+        pointer-events: initial;
+        transition: top .3s;
+    } 
+    /* show dropdown submenu */
+     .dropdown--subitem:hover .dropdown--submenu{
+        opacity: 1;
+        top: 0rem;
+        pointer-events: initial;
+        transition: top .3s;
+    } 
+    ul{
+        text-decoration: none;
+    }
+
+
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu avec Sous-Menus Responsive</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="path/to/css-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+       <nav class="nav container">
+            <div class="nav--data">
+                <a href="" class="nav--logo">
+                    <i class="ri-planet-line"></i>Company
+                </a>
+                <div class="nav--toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav--burger"></i>
+                    <i class="ri-close-line nav--close"></i>
+                </div>
+            </div>
+            <div class="nav--menu" id="nav-menu">
+                <ul class="nav--list">
+                    <li><a href="" class="nav--link">Home</a></li>
+                    <li><a href="" class="nav--link">Company</a></li>
+
+                    <li class="dropdown--item">
+                       <div class="nav--link">
+                       Analyse <i class="ri-arrow-drop-down-line dropdown--arrow"></i>
+                       </div>
+                        <ul class="dropdown--menu">
+                            <li>
+                                <a href="ExoImage.html" class="dropdown--link">
+                                    <i class="ri-pie-chart-line"></i>over
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ExoAlerte.html" class="dropdown--link">
+                                    <i class="ri-arrow-up-down-line"></i>trans
+                                </a>
+                            </li>
+                            
+                           <!-- submenu -->
+                            <li class="dropdown--subitem">
+                                <div class="dropdown--link">
+                                    <i class="ri-bar-chart-line"></i>Report<i class="ri-add-line dropdown--add"></i>
+                                </div>
+                                <ul class="dropdown--submenu">
+                                    <li>
+                                        <a href="" class="dropdown--sublink">
+                                            <i class="ri-file-list-fill"></i>Document
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown--sublink">
+                                            <i class="ri-cash-line"></i> Payement
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown--sublink">
+                                            <i class="ri-refund-2-line"></i>Refunds
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                         </ul> 
+                    </li>
+
+                    <li><a href="" class="nav--link"> Formation</a></li>
+
+                    <li class="dropdown--item">
+                            <div class="nav--link">
+                            service <i class="ri-arrow-drop-down-line dropdown--arrow"></i>
+                            </div>
+                         <ul class="dropdown--menu">
+                            <li>
+                                <a href="ExoImage.html" class="dropdown--link">
+                                    <i class="ri-user-line"></i>Profil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ExoAlerte.html" class="dropdown--link">
+                                    <i class="ri-lock-line"></i>Accou
+                                 </a>
+                            </li>
+                            <li>
+                                <a href="ExoAlerte.html" class="dropdown--link">
+                                    <i class="ri-message-3-line"></i>messag
+                                 </a>
+                            </li>
+                         </ul> 
+                     </li>
+
+                    <li><a href="" class="nav--link">Information</a></li>
+                </ul>
+            </div>
+       </nav>
+    </header>
+
+    <main>
+        <section id="accueil">
+            <!-- <h1>Bienvenue sur mon site</h1> -->
+        </section>
+    </main>
+
+    <script>
+        const showMenu = (toggleId,navId) => {
+            const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId)
+
+        toggle.addEventListener('click', () =>{
+            nav.classList.toggle('show-menu')
+            toggle.classList.toggle('show-icon')
+        })
+        }
+        showMenu('nav-toggle','nav-menu')
+    </script>
+</body>
+</html>
